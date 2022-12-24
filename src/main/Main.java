@@ -1,6 +1,10 @@
-package fac;
-public class main {
+package main;
 
+import fac.Demande;
+import fac.Etudiant;
+
+public class Main {
+	
 	private static void affichage(String[][] tableau,int annee) {
 		System.out.println("Année "+annee+": \n");
 		System.out.println("Nom"+"\t"+"Prenom"+"\t"+"N°Dos"+"\t"+"aide"+"\t\t"+"budget"+"\n");
@@ -28,7 +32,6 @@ public class main {
 		assert budget>0:"budget inchangé";
 		return budget;
 	}
-	
 	public static void main(String[] args) {
 			int LIGNE=4;
 			final int COL = 5;
@@ -40,7 +43,7 @@ public class main {
 			Demande aideSociale = new Demande("aide sociale");
 			Demande aideLogement = new Demande("aide logement");
 			Demande aideProjet = new Demande("aide projet");
-			
+
 			for(int i=0;i<LIGNE;i++) {
 				switch(i) {
 					case 0:
