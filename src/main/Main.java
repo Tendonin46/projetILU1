@@ -4,8 +4,7 @@ import fac.Demande;
 import fac.Etudiant;
 
 public class Main {
-	
-	private static void affichage(String[][] tableau,int annee) {
+	private void affichage(String[][] tableau,int annee) {
 		System.out.println("Année "+annee+": \n");
 		System.out.println("Nom"+"\t"+"Prenom"+"\t"+"N°Dos"+"\t"+"aide"+"\t\t"+"budget"+"\n");
 		for(int i=0;i<tableau.length;i++) {
@@ -17,14 +16,14 @@ public class Main {
 		System.out.println();
 	}
 	
-	private static void init(String[][] tab, int i,Etudiant etudiant,Demande demande,String budget) {
+	private void init(String[][] tab, int i,Etudiant etudiant,Demande demande,String budget) {
 		tab[i][0]=etudiant.getNom(); 
 		tab[i][1]=etudiant.getPrenom();
 		tab[i][2]=etudiant.getNumDossier();
 		tab[i][3]=demande.getTypeDemande();
 		tab[i][4]=budget;
 	}
-	private static int calculbudget(String[][] tableau) {
+	private int calculbudget(String[][] tableau) {
 		int budget=0;
 		for(int i=0;i<tableau.length;i++) {
 			budget+=Integer.parseInt(tableau[i][4]);
@@ -43,20 +42,20 @@ public class Main {
 			Demande aideSociale = new Demande("aide sociale");
 			Demande aideLogement = new Demande("aide logement");
 			Demande aideProjet = new Demande("aide projet");
-
+			Main main = new Main();
 			for(int i=0;i<LIGNE;i++) {
 				switch(i) {
 					case 0:
-						init(tableau2020,0,pierre,aideSociale,"1024");
+						main.init(tableau2020,0,pierre,aideSociale,"1024");
 						break;
 					case 1:
-						init(tableau2020,1,jack,aideSociale,"1240");
+						main.init(tableau2020,1,jack,aideSociale,"1240");
 						break;
 					case 2:
-						init(tableau2020,2,francis,aideLogement,"975");
+						main.init(tableau2020,2,francis,aideLogement,"975");
 						break;
 					case 3:
-						init(tableau2020,3,wendi,aideProjet,"1200");
+						main.init(tableau2020,3,wendi,aideProjet,"1200");
 						break;
 					default:
 						System.out.println("Erreur initialisation");
@@ -64,8 +63,8 @@ public class Main {
 				}
 			}
 			
-			affichage(tableau2020,2020);
-			System.out.println("budget alloué en 2020: "+calculbudget(tableau2020)+"€\n");
+			main.affichage(tableau2020,2020);
+			System.out.println("budget alloué en 2020: "+main.calculbudget(tableau2020)+"€\n");
 			
 		LIGNE=5;
 
@@ -79,19 +78,19 @@ public class Main {
 		for(int i=0;i<LIGNE;i++) {
 			switch(i) {
 				case 0:
-					init(tableau2021,0,crystal,aideSociale,"2000");
+					main.init(tableau2021,0,crystal,aideSociale,"2000");
 					break;
 				case 1:
-					init(tableau2021,1,myriam,aideLogement,"945");
+					main.init(tableau2021,1,myriam,aideLogement,"945");
 					break;
 				case 2:
-					init(tableau2021,2,savino,aideProjet,"800");
+					main.init(tableau2021,2,savino,aideProjet,"800");
 					break;
 				case 3:
-					init(tableau2021,3,clohe,aideSociale,"1300");
+					main.init(tableau2021,3,clohe,aideSociale,"1300");
 					break;
 				case 4:
-					init(tableau2021,4,gui,aideProjet,"705");
+					main.init(tableau2021,4,gui,aideProjet,"705");
 					break;
 					
 				default:
@@ -100,8 +99,8 @@ public class Main {
 			}
 		}
 		
-		affichage(tableau2021, 2021);
-		System.out.println("budget alloué en 2021: "+calculbudget(tableau2021)+"€\n");
+		main.affichage(tableau2021, 2021);
+		System.out.println("budget alloué en 2021: "+main.calculbudget(tableau2021)+"€\n");
 		
 		LIGNE = 6;
 		String[][] tableau2022 = new String[LIGNE][COL];
@@ -115,22 +114,22 @@ public class Main {
 		for(int i=0;i<LIGNE;i++) {
 			switch(i) {
 				case 0:
-					init(tableau2022,0,janis,aideProjet,"1000");
+					main.init(tableau2022,0,janis,aideProjet,"1000");
 					break;
 				case 1:
-					init(tableau2022,1,renan,aideLogement,"786");
+					main.init(tableau2022,1,renan,aideLogement,"786");
 					break;
 				case 2:
-					init(tableau2022,2,ingrid,aideLogement,"620");
+					main.init(tableau2022,2,ingrid,aideLogement,"620");
 					break;
 				case 3:
-					init(tableau2022,3,stacey,aideSociale,"2100");
+					main.init(tableau2022,3,stacey,aideSociale,"2100");
 					break;
 				case 4:
-					init(tableau2022,4,richard,aideLogement,"500");
+					main.init(tableau2022,4,richard,aideLogement,"500");
 					break;
 				case 5:
-					init(tableau2022,5,nicolau,aideSociale,"1100");
+					main.init(tableau2022,5,nicolau,aideSociale,"1100");
 					break;
 					
 				default:
@@ -139,8 +138,8 @@ public class Main {
 			}
 		}
 		
-		affichage(tableau2022, 2022);
-		System.out.println("budget alloué en 2022: "+calculbudget(tableau2022)+"€");
+		main.affichage(tableau2022, 2022);
+		System.out.println("budget alloué en 2022: "+main.calculbudget(tableau2022)+"€");
 	}
 
 }
