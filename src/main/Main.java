@@ -137,7 +137,6 @@ public class Main {
 					break;
 			}
 		}
-		
 		main.affichage(tableau2022, 2022);
 		System.out.println("budget alloué en 2022: "+main.calculbudget(tableau2022)+"€");
 	}
